@@ -1,27 +1,28 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-function App() {
-  console.log(process.env.REACT_APP_TMDB_API_KEY);
+const App = () => {
+  const [movies, setMovies] = useState([]);
+
+  async function fetchData() {
+    await axios("/.netlify/functions/getMovies")
+      .then(res => setMovies(res.data.movies))
+      .catch(error => console.error(error));
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log(movies);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {movies.map(movie => (
+        <div>{movie.title}</div>
+      ))}
     </div>
   );
-}
+};
 
 export default App;
