@@ -1,18 +1,19 @@
 import React from "react";
+import { getGenreName } from "../utils/getGenreName";
 import "./MovieCard.css";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, genres }) => {
   let sideElementTopPosition = 20;
   return (
     <div title={movie.title} className="MovieCard">
       <img
         className="MovieCard__image MovieCard__image-1"
-        src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
+        src={`https://image.tmdb.org/t/p/w400${movie.posterPath}`}
         alt={movie.title}
       />
       <img
         className="MovieCard__image MovieCard__image-2"
-        src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
+        src={`https://image.tmdb.org/t/p/w400${movie.posterPath}`}
         alt={movie.title}
       />
       <div title={movie.overview} className="MovieCard__text">
@@ -20,7 +21,7 @@ const MovieCard = ({ movie }) => {
           ? `${movie.overview.substring(0, 300)}...`
           : movie.overview}
       </div>
-      {movie.genre_ids.map((genreId, i) => {
+      {movie.genres.map((genreId, i) => {
         if (i !== 0) {
           sideElementTopPosition += 35;
         }
@@ -32,21 +33,21 @@ const MovieCard = ({ movie }) => {
               top: `${sideElementTopPosition}px`
             }}
           >
-            {genreId}
+            {getGenreName(genreId, genres)}
           </div>
         );
       })}
       <div
         className={`MovieCard__rating ${
-          movie.vote_average > 7
+          movie.voteAverage > 7
             ? "MovieCard__rating-green"
-            : movie.vote_average > 5
+            : movie.voteAverage > 5
             ? "MovieCard__rating-orange"
             : "MovieCard__rating-red"
         }`}
         style={{ top: `${sideElementTopPosition + 35}px` }}
       >
-        Rating: {movie.vote_average}
+        Rating: {movie.voteAverage}
       </div>
     </div>
   );
