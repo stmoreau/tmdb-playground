@@ -13,6 +13,7 @@ This Web App is a demonstration of TMDB's API.
 2. You’ll need a [TMDb account](https://www.themoviedb.org/account/signup) to request an API key. Once you are registered, go to account settings and click 'API' in sidebar to get your API key.
 3. Run `MOVIE_DB_API_KEY="your_api_key" npm run start:lambda` and in another tab `npm start`
 4. Navigate on your browser to `http://localhost:3000/` to see the application
+5. The lambda function used can be found locally at `http://localhost:3000/.netlify/functions/getMovies`
 
 ## Run tests (WIP)
 
