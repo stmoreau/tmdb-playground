@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../../Store/Context";
-import Header from "../Header";
 import Main from "../Main";
 import Loading from "../Loading";
 import "normalize.css";
@@ -14,7 +13,6 @@ const App = () => {
     <Loading />
   ) : (
     <div className="App">
-      <Header />
       <Main movies={movies} genres={genres} />
     </div>
   );

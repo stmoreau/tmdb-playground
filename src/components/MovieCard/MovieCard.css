@@ -101,3 +101,18 @@
 .MovieCard:hover .MovieCard__rating {
   transform: translate(0);
 }
+
+@media only screen and (max-width: 992px) {
+  .MovieCard {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: 280px;
+    height: 450px;
+    margin: 10px;
+    background: #16233b;
+    border: 5px solid #081c24;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #16233b;
+  }
+}

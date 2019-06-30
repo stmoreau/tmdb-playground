@@ -1,11 +1,11 @@
 import React from "react";
-import SideMenu from "../SideMenu";
+import FilterMenu from "../FilterMenu";
 import Content from "../Content";
 import "./Main.css";
 
 const Main = () => (
   <div className="Main">
-    <SideMenu />
+    <FilterMenu />
     <Content />
   </div>
 );

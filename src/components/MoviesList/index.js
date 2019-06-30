@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../../Store/Context";
 import MovieCard from "../MovieCard";
+import NoMoviesFound from "../NoMoviesFound";
 import "./MoviesList.css";
 
 const MoviesList = () => {
@@ -9,9 +10,11 @@ const MoviesList = () => {
 
   return (
     <div className="MoviesList">
-      {displayedMovies.map(movie => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
+      {displayedMovies.length ? (
+        displayedMovies.map(movie => <MovieCard key={movie.id} movie={movie} />)
+      ) : (
+        <NoMoviesFound />
+      )}
     </div>
   );
 };
