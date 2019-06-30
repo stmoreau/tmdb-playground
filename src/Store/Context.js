@@ -14,12 +14,15 @@ const StoreProvider = ({ children }) => {
     await axios("/.netlify/functions/getMovies")
       .then(res => {
         dispatch({
-          type: types.SET_MOVIES,
+          type: types.SET_ALL_MOVIES,
           payload: res.data.movies
         });
         dispatch({
           type: types.SET_GENRES,
           payload: res.data.genres
+        });
+        dispatch({
+          type: types.SHOW_MOVIES
         });
       })
       .catch(error => console.error(error));

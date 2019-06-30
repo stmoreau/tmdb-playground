@@ -10,7 +10,7 @@ const CheckboxList = () => {
   return (
     <div className="CheckboxList">
       {genres.map(checkbox => (
-        <Checkbox key={checkbox.id} label={checkbox.name} />
+        <Checkbox key={checkbox.id} checkbox={checkbox} />
       ))}
     </div>
   );

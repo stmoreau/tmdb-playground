@@ -5,11 +5,11 @@ import "./MoviesList.css";
 
 const MoviesList = () => {
   const { state } = useContext(StoreContext);
-  const { movies } = state;
+  const { displayedMovies } = state;
 
   return (
     <div className="MoviesList">
-      {movies.map(movie => (
+      {displayedMovies.map(movie => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>

@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { StoreContext } from "../../Store/Context";
+import { types } from "../../Store/Reducer";
 import { Range, getTrackBackground } from "react-range";
 import "./RangeSelector.css";
 
@@ -7,16 +9,25 @@ const MIN = 0;
 const MAX = 10;
 
 const RangeSelector = () => {
-  const [values, setValues] = useState([3, 10]);
+  const { state, dispatch } = useContext(StoreContext);
+  const { ratingRange } = state;
 
   return (
     <div className="RangeSelector">
       <Range
-        values={values}
+        values={ratingRange}
         step={STEP}
         min={MIN}
         max={MAX}
-        onChange={values => setValues(values)}
+        onChange={newRatingRange => {
+          dispatch({
+            type: types.CHANGE_RATING_RANGE,
+            payload: newRatingRange
+          });
+          dispatch({
+            type: types.SHOW_MOVIES
+          });
+        }}
         renderTrack={({ props, children }) => (
           <div className="RangeSelector__container">
             <div
@@ -24,7 +35,7 @@ const RangeSelector = () => {
               ref={props.ref}
               style={{
                 background: getTrackBackground({
-                  values,
+                  values: ratingRange,
                   colors: ["#ccc", "#548BF4", "#ccc"],
                   min: MIN,
                   max: MAX
@@ -38,7 +49,7 @@ const RangeSelector = () => {
         renderThumb={({ index, props, isDragged }) => (
           <div className="RangeSelector__thumb-container" {...props}>
             <div className="RangeSelector__thumb-content">
-              {values[index].toFixed(1)}
+              {ratingRange[index]}
             </div>
             <div
               className="RangeSelector__thumb-i"
