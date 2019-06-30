@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import MoviesList from "../MoviesList";
+import "./Content.css";
 
-const App = () => {
+const Content = () => {
   const [movies, setMovies] = useState([]);
 
   async function fetchData() {
@@ -14,15 +16,11 @@ const App = () => {
     fetchData();
   }, []);
 
-  console.log(movies);
-
   return (
-    <div>
-      {movies.map(movie => (
-        <div>{movie.title}</div>
-      ))}
+    <div className="Content">
+      <MoviesList movies={movies} />
     </div>
   );
 };
 
-export default App;
+export default Content;

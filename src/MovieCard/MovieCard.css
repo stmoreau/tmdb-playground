@@ -1,0 +1,103 @@
+.MovieCard {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  width: 320px;
+  height: 450px;
+  margin: 50px 20px;
+  background: #16233b;
+  border: 5px solid #081c24;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #16233b;
+}
+
+.MovieCard__image {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.MovieCard__image-1 {
+  clip: rect(0px, 310px, 270px, 0px);
+  top: 0;
+}
+
+.MovieCard__image-2 {
+  clip: rect(270px, 310px, 440px, 0px);
+  bottom: 0;
+}
+
+.MovieCard:hover .MovieCard__image-1 {
+  transform: rotate(10deg) scale(1.3) translate(20px, 0);
+  transform-origin: 300px 300px;
+  opacity: 0.5;
+}
+
+.MovieCard:hover .MovieCard__image-2 {
+  transform: rotate(90deg) translate(0px, 150px);
+  transform-origin: -20px 200px;
+}
+
+.MovieCard__text {
+  position: absolute;
+  bottom: 80px;
+  height: 120px;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 17px;
+  color: #fff;
+  transform: rotate(90deg);
+  transform-origin: 0 100px;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.MovieCard:hover .MovieCard__text {
+  opacity: 0.8;
+  transform: rotate(0deg);
+}
+
+.MovieCard__genre {
+  position: absolute;
+  left: 10px;
+  padding: 3px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  background: #2a264f;
+  color: #fff;
+  border-radius: 5px;
+  transform: translate(-160px, 0);
+  transition: all 0.5s ease;
+}
+
+.MovieCard__rating {
+  position: absolute;
+  left: 10px;
+  padding: 3px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  transform: translate(-160px, 0);
+  transition: all 0.5s ease 0.15s;
+}
+
+.MovieCard__rating-green {
+  background: #05a768;
+}
+
+.MovieCard__rating-orange {
+  background: #e06000;
+}
+
+.MovieCard__rating-red {
+  background: #a6001a;
+}
+.MovieCard:hover .MovieCard__genre,
+.MovieCard:hover .MovieCard__rating {
+  transform: translate(0);
+}

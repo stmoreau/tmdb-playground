@@ -1,0 +1,17 @@
+.Header {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.Header__logo {
+  background-color: #16233b;
+  height: 100%;
+  text-align: center;
+}
+
+.Header__logo-img {
+  position: relative;
+  width: 81px;
+  height: 72px;
+  top: 15px;
+}
