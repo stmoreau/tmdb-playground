@@ -1,9 +1,13 @@
-import React from "react";
-import { getGenreName } from "../utils/getGenreName";
+import React, { useContext } from "react";
+import { StoreContext } from "../../Store/Context";
+import { getGenreName } from "../../utils/getGenreName";
 import "./MovieCard.css";
 
-const MovieCard = ({ movie, genres }) => {
+const MovieCard = ({ movie }) => {
+  const { state } = useContext(StoreContext);
+  const { genres } = state;
   let sideElementTopPosition = 20;
+
   return (
     <div title={movie.title} className="MovieCard">
       <img

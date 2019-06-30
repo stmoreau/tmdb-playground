@@ -2,9 +2,9 @@ import React from "react";
 import MoviesList from "../MoviesList";
 import "./Content.css";
 
-const Content = ({ movies, genres }) => (
+const Content = () => (
   <div className="Content">
-    <MoviesList movies={movies} genres={genres} />
+    <MoviesList />
   </div>
 );
 
