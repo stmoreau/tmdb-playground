@@ -31,13 +31,11 @@
 
 .MovieCard:hover .MovieCard__image-1 {
   transform: rotate(10deg) scale(1.3) translate(20px, 0);
-  transform-origin: 300px 300px;
   opacity: 0.5;
 }
 
 .MovieCard:hover .MovieCard__image-2 {
   transform: rotate(90deg) translate(0px, 150px);
-  transform-origin: -20px 200px;
 }
 
 .MovieCard__text {
@@ -51,7 +49,7 @@
   transform: rotate(90deg);
   transform-origin: 0 100px;
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .MovieCard:hover .MovieCard__text {
