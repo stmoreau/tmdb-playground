@@ -1,6 +1,6 @@
 export const filterMovies = (movieArray, ratingRange, selectedGenreIds) => {
   let newMovieArray = [];
-  for (let i = 0; i < movieArray.length; i++) {
+  for (var i = 0; i < movieArray.length; i++) {
     if (
       movieArray[i].voteAverage >= ratingRange[0] &&
       movieArray[i].voteAverage <= ratingRange[1]

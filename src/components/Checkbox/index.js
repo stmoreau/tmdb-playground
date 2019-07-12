@@ -30,9 +30,10 @@ const Checkbox = ({ checkbox }) => {
   };
 
   return (
-    <label className="Checkbox">
+    <label className={`Checkbox ${checkbox.active ? "" : "Checkbox-disabled"}`}>
       {checkbox.name}
       <input
+        disabled={checkbox.active ? "" : "disabled"}
         onChange={handleClick}
         className="Checkbox__input"
         value={isChecked ? "checked" : ""}

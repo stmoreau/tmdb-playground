@@ -22,11 +22,14 @@ const App = () => {
           payload: res.data.movies
         });
         dispatch({
+          type: types.SHOW_MOVIES
+        });
+        return res;
+      })
+      .then(res => {
+        dispatch({
           type: types.SET_GENRES,
           payload: res.data.genres
-        });
-        dispatch({
-          type: types.SHOW_MOVIES
         });
       })
       .catch(error => console.error(error));

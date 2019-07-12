@@ -8,6 +8,10 @@
   user-select: none;
 }
 
+.Checkbox-disabled {
+  text-decoration: line-through;
+}
+
 .Checkbox__input {
   position: absolute;
   opacity: 0;
@@ -31,6 +35,12 @@
 
 .Checkbox__input:checked ~ .Checkbox__checkmark {
   background-color: #548bf4;
+}
+
+.Checkbox__input:disabled,
+.Checkbox__input:disabled ~ .Checkbox__checkmark {
+  cursor: not-allowed;
+  background-color: #670000;
 }
 
 .Checkbox__checkmark:after {

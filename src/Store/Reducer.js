@@ -1,4 +1,5 @@
 import { filterMovies } from "../utils/filterMovies";
+import { filterGenres } from "../utils/filterGenres";
 import { removeElementFromArray } from "../utils/removeElementFromArray";
 
 const initialState = {
@@ -37,7 +38,7 @@ const reducer = (state = initialState, action) => {
       });
     case types.SET_GENRES:
       return Object.assign({}, state, {
-        genres: action.payload
+        genres: filterGenres(state.fetchedMovies, action.payload)
       });
     case types.SET_LOADING:
       return Object.assign({}, state, {
